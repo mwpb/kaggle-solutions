@@ -21,7 +21,8 @@ Learning problems fall into two broad categories:-
 A dataset is a wrapper around data that provides metadata.
 This is done using a dictionary.
 Common attributes include:-
-* `.data`: a 2D array that constitutes the data of the input variables.
+* `.data`: 
+	* a 2D array that constitutes the data of the input variables.
 	* Number of rows = number of samples.
 	* Number of columns = number of features/attributes.
 * `.target`: 
