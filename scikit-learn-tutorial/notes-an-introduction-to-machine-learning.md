@@ -73,5 +73,22 @@ In classification the discrete categories are not altered.
 
 ### Refitting and updating parameters
 
+The estimator has a method `.set_params` which sets the hyper-parameters.
 Calling `.fit()` more than once will overwrite what was learned previously.
 
+### Multi-class vs multi-label fitting
+
+Binary classification: only two possible values of the response variables.
+Multiclass classification: the response variable can take values in a set of size greater than two.
+
+There are several methods of converting a multi-class classification to a binary one.
+These include:-
+* One-vs-rest:
+	* Trains a single classifier per class.
+	* Each returns a real-valued confidence score to express how likely a data point is to be in the corresponding class.
+	* The highest score informs the classification.
+* One-vs-one:
+	* Trains a classifier for every pair of classes.
+	* Each classifier votes at prediction time.
+
+Note that in scikit-learn this process can result in responses that the data point fits none of the classes or multiple classes at once.
