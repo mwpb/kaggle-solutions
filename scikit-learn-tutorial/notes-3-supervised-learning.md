@@ -66,5 +66,10 @@ from sklearn import linear_model
 regr = linear_model.Ridge(alpha=.1)
 ```
 
+This has the effect of decreasing the effect of some attributes that are correlated to other attributes.
+
 #### Sparsity
+
+An approach called the lasso (least absolute shrinkage and selection operator) is used to actually eliminate some attributes.
+This reduces dimensionality.
 
