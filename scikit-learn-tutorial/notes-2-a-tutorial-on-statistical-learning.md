@@ -1,5 +1,7 @@
 # A tutorial on statistical learning for scientific data processing
 
+[website](https://scikit-learn.org/stable/tutorial/statistical_inference/settings.html)
+
 Statistical learning aims to draw conclusions about the data.
 
 ## Statistical learning: the setting and the estimator object in scikit-learn
