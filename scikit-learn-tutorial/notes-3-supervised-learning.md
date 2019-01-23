@@ -91,3 +91,5 @@ We can apply the above methods to a binary classification also.
 Instead of using linear regression we first pass the data through a sigmoid function.
 This function redistributes so that the data is much more likely to be closer to 0 or 1.
 (And also rules out value less than 0 and greater than 1.)
+
+In sklearn we use `linear_model.LogisticRegression(solver='lbfgs', multi_class='multinomial')` as the estimator.
