@@ -93,3 +93,39 @@ This function redistributes so that the data is much more likely to be closer to
 (And also rules out value less than 0 and greater than 1.)
 
 In sklearn we use `linear_model.LogisticRegression(solver='lbfgs', multi_class='multinomial')` as the estimator.
+
+## Support vector machines
+
+### Linear SVMs
+
+A linear SVM finds a line (hyper-plane...) that separates the data into two classes.
+It maximises the margin between the plane and either of the two datasets.
+As such it is a (quadratic?) optimisation problem.
+(This estimator takes a parameter.
+The higher the parameter the less mistaken classifications are tolerated.)
+
+SVMs works better on data whose standard deviation is normalised (i.e. equals 1).
+In sklearn there is a function for this:
+
+```
+from sklearn import preprocessing
+preprocessing.normalize(X, norm='l2')
+```
+
+As such SVMs can be used for either:
+* binary classification (SVC): either side of the line
+* regression (SVR): use this as a 'line of best fit'
+
+In sklearn an SVC estimator is constructed as follows:
+```
+from sklearn import svm
+svc = svm.SVC(kernel = "linear")
+```
+
+### Using kernels
+
+When a decision function does not suffice it is possible to use:-
+* a polynomial separator: `svc = svm.SVC(kernel = "poly", degree = 3)`
+* a radial basis function: `svc = svm.SVC(kernel = "rbf")`
+
+(It seems that the radial basis function is applied pairwise.)

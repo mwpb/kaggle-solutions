@@ -1,14 +1,16 @@
 from sklearn import datasets, neighbors, linear_model
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.utils import shuffle
 
 digits = datasets.load_digits()
-n = digits.data.shape[0]
+X, y = shuffle(digits.data, digits.target)
+n = len(X) #digits.data.shape[0]
 n_test = n//10
 n_train = n - n_test
-X_train = digits.data[:n_train]
-y_train = digits.target[:n_train]
-X_test = digits.data[n_train:]
-y_test = digits.target[n_train:]
+X_train = X[:n_train]
+y_train = y[:n_train]
+X_test = X[n_train:]
+y_test = y[n_train:]
 
 # KNeighbors
 
