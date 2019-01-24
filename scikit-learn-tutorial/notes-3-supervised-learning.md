@@ -101,7 +101,7 @@ In sklearn we use `linear_model.LogisticRegression(solver='lbfgs', multi_class='
 A linear SVM finds a line (hyper-plane...) that separates the data into two classes.
 It maximises the margin between the plane and either of the two datasets.
 As such it is a (quadratic?) optimisation problem.
-(This estimator takes a parameter.
+(This estimator takes a parameter `c`.
 The higher the parameter the less mistaken classifications are tolerated.)
 
 SVMs works better on data whose standard deviation is normalised (i.e. equals 1).
@@ -119,7 +119,7 @@ As such SVMs can be used for either:
 In sklearn an SVC estimator is constructed as follows:
 ```
 from sklearn import svm
-svc = svm.SVC(kernel = "linear")
+svc = svm.SVC(kernel = "linear", C = c)
 ```
 
 ### Using kernels
