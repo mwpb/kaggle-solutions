@@ -70,3 +70,40 @@ from sklearn.cluster import FeatureAgglomeration
 agglo = cluster.FeatureAgglomeration(n_clusters=32, connectivity = cty)
 ```
 
+## Decompositions: from signal to components and loading
+
+### Principal component analysis: PCA
+
+Principal component analysis selects an orthogonal basis iteratively:-
+* with respect to the first basis vector the data has the largest possible variance
+* the next basis vector has the largest possible variance subject to the condition that it is orthogonal to all the previous vectors in the basis.
+
+In sklearn:
+
+```
+from sklearn import decomposition
+pca = decomposition.PCA()
+pca.fit(X)
+```
+and then we have attributes:-
+* `pca.components_`: shows the new orthogonal basis
+* `pca.explained_variance_`: the variance of the data in the directions of the new basis
+
+### Independent component analysis: ICA
+
+Attempts to split a set of observations into a sum of independent components.
+A heuristic conclusion from the central limit theorem:
+the sum of independent non-Gaussian random variables is more Gaussian than each.
+The ICA simultaneously finds the components which together are most independent.
+
+* The following is called projection pursuit: the algorithm returns a basis for which the first vector is the vector in which the distribution is the most non-Gaussian. According to wikipedia this is not ICA.
+
+In sklearn we use:
+```
+from sklearn import decomposition
+ica = decomposition.FastICA(n_component = None)
+```
+
+and then we have attributes:-
+* `ica_components_`: the unmixing matrix taking the data to the independent components
+* `ica.mixing_`: the mixing matrix that takes the components to the original data
