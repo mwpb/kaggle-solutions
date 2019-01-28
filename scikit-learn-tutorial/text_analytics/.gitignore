@@ -4,8 +4,6 @@
 .DS_Store
 *.pdf
 
-# folder to be used for working on the exercises
-workspace
 
 # output of the sphinx build of the documentation
 tutorial/_build
