@@ -10,12 +10,18 @@ with open('./trained_en', 'rb') as file:
 with open('./trained_review', 'rb') as f:
 	gs_review = pickle.load(f)
 
-print(clf_en)
-print(gs_review)
+target_names = clf_en[1]
 
-predict_en = clf_en.predict([test_text])
-print(predict_en)
+predict_en = clf_en[0].predict([test_text])
+lang = target_names[predict_en[0]]
 
-if predict_en == 2:
+if lang == 'en':
 	predict_review = gs_review.predict([test_text])
-	print(predict_review)
+	if predict_review[0] == 0:
+		print('Negative review written in English.')
+	elif predict_review[0] == 1:
+		print('Positive review written in English.')
+	else:
+		print('Failed to classifying review written in English.')
+else:
+	print('English not detected.')

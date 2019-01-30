@@ -27,4 +27,4 @@ clf = Pipeline([
 
 clf.fit(docs_train, y_train)
 with open('./trained_en', 'wb') as file:
-	pickle.dump(clf, file)
+	pickle.dump((clf, dataset.target_names), file)
