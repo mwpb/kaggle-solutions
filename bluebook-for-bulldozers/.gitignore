@@ -1,2 +1,4 @@
 data/*
 !data/Test.csv
+!data/Valid.csv
+!data/ValidSolution.csv
